@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="Ljn-dE-En6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="Ljn-dE-En6">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,13 +26,20 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9dV-VP-c75" appends="YES" id="J5a-sU-2cu"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="topView" destination="3Mz-Pq-1Vc" id="Eqp-rL-cXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhY-FT-isN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="9dV-VP-c75"/>
+                <panGestureRecognizer delaysTouchesBegan="YES" delaysTouchesEnded="NO" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="9dV-VP-c75">
+                    <connections>
+                        <action selector="viewPanned:" destination="Ljn-dE-En6" id="5EG-mr-XQz"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-151" y="615"/>
         </scene>

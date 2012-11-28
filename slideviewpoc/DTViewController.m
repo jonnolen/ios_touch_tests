@@ -9,8 +9,9 @@
 #import "DTViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface DTViewController ()
-
+@interface DTViewController (){
+    CGFloat lastTranslation;
+}
 @end
 
 @implementation DTViewController
@@ -35,15 +36,42 @@ const float SNAP_DURATION = .2;
 }
 
 - (IBAction)viewPanned:(UIPanGestureRecognizer *)pan{
-    
-    CGPoint translation = [pan translationInView:self.view];
-    NSLog(@"translation: %f, %f", translation.x, translation.y);
-
-    CGRect newRect = self.topView.frame;
-    newRect.origin.x = translation.x;
-    
-    self.topView.frame = newRect;
-    
+    CGPoint translation = [pan translationInView:self.topView];
+    if (pan.state == UIGestureRecognizerStateBegan){
+        lastTranslation = 0.0;
+    }
+    if (pan.state == UIGestureRecognizerStateChanged){
+        NSLog(@"translation: %f, %f", translation.x, translation.y);
+        
+        CGFloat dx = translation.x - lastTranslation;
+        lastTranslation = translation.x;
+        
+        CGRect newFrame = CGRectOffset(self.topView.frame, dx, 0);
+        if (newFrame.origin.x >= 0 && newFrame.origin.x <= SNAP_TO_X){
+            self.topView.frame = newFrame;
+        }
+    }
+    if (pan.state == UIGestureRecognizerStateEnded){
+        CGFloat currentX = self.topView.frame.origin.x;
+        CGFloat targetX = -1.0;
+        if (currentX < SNAP_TO_THRESHOLD && currentX > 0.0)
+        {
+            targetX = 0.0;
+        }
+        else if (currentX >= SNAP_TO_THRESHOLD && currentX < SNAP_TO_X){
+            targetX = SNAP_TO_X;
+        }
+        
+        if (targetX >= 0.0)
+        {
+            [UIView animateWithDuration:SNAP_DURATION delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^(){
+                CGRect newFrame = self.topView.frame;
+                newFrame.origin.x = targetX;
+                self.topView.frame = newFrame;
+            }
+                             completion:nil];
+        }
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
