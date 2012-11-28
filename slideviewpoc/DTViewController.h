@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DTViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIView *topView;
 
+- (IBAction)viewPanned:(UIPanGestureRecognizer *)pan;
 @end

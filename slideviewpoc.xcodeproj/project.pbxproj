@@ -23,6 +23,7 @@
 		FC954FE0163067A9005CBE8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC954FBB163067A9005CBE8F /* Foundation.framework */; };
 		FC954FE8163067A9005CBE8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC954FE6163067A9005CBE8F /* InfoPlist.strings */; };
 		FC954FEB163067A9005CBE8F /* slideviewpocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC954FEA163067A9005CBE8F /* slideviewpocTests.m */; };
+		FC954FF6163186E0005CBE8F /* DTMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FC954FF5163186E0005CBE8F /* DTMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		FC954FE7163067A9005CBE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC954FE9163067A9005CBE8F /* slideviewpocTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = slideviewpocTests.h; sourceTree = "<group>"; };
 		FC954FEA163067A9005CBE8F /* slideviewpocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = slideviewpocTests.m; sourceTree = "<group>"; };
+		FC954FF4163186E0005CBE8F /* DTMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMenu.h; sourceTree = "<group>"; };
+		FC954FF5163186E0005CBE8F /* DTMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				FC954FD4163067A9005CBE8F /* DTViewController.h */,
 				FC954FD5163067A9005CBE8F /* DTViewController.m */,
 				FC954FC0163067A9005CBE8F /* Supporting Files */,
+				FC954FF4163186E0005CBE8F /* DTMenu.h */,
+				FC954FF5163186E0005CBE8F /* DTMenu.m */,
 			);
 			path = slideviewpoc;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				FC954FC6163067A9005CBE8F /* main.m in Sources */,
 				FC954FCA163067A9005CBE8F /* DTAppDelegate.m in Sources */,
 				FC954FD6163067A9005CBE8F /* DTViewController.m in Sources */,
+				FC954FF6163186E0005CBE8F /* DTMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +387,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slideviewpoc/slideviewpoc-Prefix.pch";
 				INFOPLIST_FILE = "slideviewpoc/slideviewpoc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,6 +399,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slideviewpoc/slideviewpoc-Prefix.pch";
 				INFOPLIST_FILE = "slideviewpoc/slideviewpoc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
