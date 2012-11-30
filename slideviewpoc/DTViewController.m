@@ -9,9 +9,11 @@
 #import "DTViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface DTViewController (){
+@interface DTViewController ()<UITableViewDataSource, UITableViewDelegate>{
     CGFloat lastTranslation;
+
 }
+@property (nonatomic, strong) NSArray *dataSource;
 @end
 
 @implementation DTViewController
@@ -26,6 +28,8 @@ const float SNAP_DURATION = .2;
 	// Do any additional setup after loading the view, typically from a nib.
     [self.topView.layer setShadowOffset:CGSizeMake(-8.0, 0)];
     [self.topView.layer setShadowOpacity:0.5];
+    
+    self.dataSource = @[@"Frog",@"Turtle", @"Dog", @"Guinea Pig", @"Chinchilla", @"Rat", @"Zebra", @"Komodo Dragon"];
     
 }
 
@@ -124,4 +128,25 @@ const float SNAP_DURATION = .2;
     [super touchesCancelled:touches withEvent:event];
     NSLog(@"touches canceled on view %d", [[touches anyObject] view].tag);
 }
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    
+    if (!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
+    }
+    
+    cell.textLabel.text = self.dataSource[indexPath.row];
+    
+    return cell;
+}
+
 @end
